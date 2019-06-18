@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/FinancasIndex.css" />
+</head>
+<body>
+    <div> 
+        <h1>Lista de Conta Pagar</h1>
+    </div>
+    <a href="/ContaPagar/Cadastro">Novo Cadastro</a>
+    <div>
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Id</th>
+                    <th>Valor</th>
+                    <th>Descricao</th>
+                    <th>Tipo</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(int i = 0; i <ViewBag.ContasPagar.Count; i++)
+                {
+                    <tr>
+                        <td>@ViewBag.ContasPagar[i].Nome</td>
+                        <td>@ViewBag.ContasPagar[i].Id</td>
+                        <td>@ViewBag.ContasPagar[i].Valor</td>
+                        <td>@ViewBag.ContasPagar[i].Descricao</td>
+                        <td>@ViewBag.ContasPagar[i].Tipo</td>
+                        <td>@ViewBag.ContasPagar[i].Status</td>
+                        <td>
+                            <a href="/contasPagar/editar?id=@ViewBag.ContasPagar[i].Id">Editar</a>
+                            <a href="/contasPagar/apagar?id=@ViewBag.ContasPagar[i].Id">Apagar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a href="/financas/cadastro">Novo Cadastro</a>
+    <form action="/financas/index" method="get">
+        <label for="campo-pesquisa">Pesquisa</label>
+        <input type="text" id="campo-pesquisa" name="pesquisa" />
+    </form>
+</body>
+</html>
