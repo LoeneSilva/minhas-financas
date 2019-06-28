@@ -21,7 +21,7 @@ namespace Repository
         public bool Apagar(int id)
         {
             SqlCommand comando = conexao.Conectar();
-            comando.CommandText = "DELETE FROM financas WHERE id =@ID";
+            comando.CommandText = "DELETE FROM financas WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             int quantidadeAfetada = comando.ExecuteNonQuery();
@@ -46,7 +46,7 @@ namespace Repository
             financa.Id = Convert.ToInt32(linha["id"]);
             financa.Nome = linha["nome"].ToString();
             financa.Valor = Convert.ToDecimal(linha["valor"]);
-            financa.Tipo = Convert.ToDecimal(linha["tipo"]);
+            financa.Tipo =linha["tipo"].ToString();
             financa.Descricao = linha["descricao"].ToString();
             financa.Status = linha["status"].ToString();
 
@@ -57,9 +57,9 @@ namespace Repository
         public int Inserir(ContaPagar financa)
         {
             SqlCommand comando = conexao.Conectar();
-            comando.CommandText = @"INSERT INTO financas (id, nome, valor, decricao, tipo, status)
-OUTPUT INSERTD.ID
-VALUES (@VALOR, @NOME, @DESCRICAO, @TIPO, @STATUS)";
+            comando.CommandText = @"INSERT INTO financas (nome, valor, descricao, tipo, status)
+OUTPUT INSERTED.ID
+VALUES (@NOME,@VALOR, @DESCRICAO, @TIPO, @STATUS)";
             comando.Parameters.AddWithValue("@NOME", financa.Nome);
             comando.Parameters.AddWithValue("@VALOR", financa.Valor);
             comando.Parameters.AddWithValue("@DESCRICAO", financa.Descricao);
@@ -89,7 +89,7 @@ VALUES (@VALOR, @NOME, @DESCRICAO, @TIPO, @STATUS)";
                 financa.Id = Convert.ToInt32(linha["id"]);
                 financa.Nome = linha["nome"].ToString();
                 financa.Valor = Convert.ToDecimal(linha["valor"]);
-                financa.Tipo = Convert.ToDecimal(linha["tipo"]);
+                financa.Tipo = linha["tipo"].ToString();
                 financa.Descricao = linha["descricao"].ToString();
                 financa.Status = linha["status"].ToString();
                 financas.Add(financa);

@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao.cs" />
+    <Compile Include="ContaReceberRepository.cs" />
     <Compile Include="FinancasRepository.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="IRepositoryContasReceber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Estrutura.sql" />
+    <Content Include="EstruturaContasReceber.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

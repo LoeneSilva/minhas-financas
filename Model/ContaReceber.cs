@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class ContaPagar
+    public class ContaReceber
     {
-        public string Nome;
         public int Id;
+        public string Nome;
         public decimal Valor;
         public string Tipo;
         public string Descricao;

@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+</head>
+<body>
+    <form action="/ContaPagar/update" method="post">
+        <label for="campo-nome">Nome</label>
+        <input type="text" name="nome" id="campo-nome"
+               value="@ViewBag.Financa.Nome" />
+        <label for="campo-valor">Valor</label>
+        <input type="text" name="valor" id="campo-valor"
+               value="@ViewBag.Financa.Valor" />
+        <input type="hidden" name="id" value="@ViewBag" />
+        <label for="campo-descricao">Descricao</label>
+        <input type="text" name="descricao" id="campo-descricao"
+               value="@ViewBag.Financa.Descricao" />
+        <label for="campo-tipo">Tipo</label>
+        <input type="text" name="tipo" id="campo-tipo"
+               value="@ViewBag.Financa.Tipo" />
+        <label for="campo-status">Status</label>
+        <input type="text" name="status" id="campo-status"
+               value="@ViewBag.Financa.Status" />
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

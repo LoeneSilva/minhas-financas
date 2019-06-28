@@ -25,7 +25,7 @@ namespace View.Controllers
             return View();
         }
 
-        public ActionResult Store(string nome, decimal valor, decimal tipo, string descricao, string status)
+        public ActionResult Store(string nome, decimal valor, string tipo, string descricao, string status)
         {
 
             ContaPagar contaPagar = new ContaPagar();
@@ -56,7 +56,7 @@ namespace View.Controllers
             
         }
 
-        public ActionResult Update(int id, string nome, decimal valor, decimal tipo, string descricao, string status)
+        public ActionResult Update(int id, string nome, decimal valor, string tipo, string descricao, string status)
         {
             ContaPagar contaPagar = new ContaPagar();
             contaPagar.Id = id;
